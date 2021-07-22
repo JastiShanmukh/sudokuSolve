@@ -1,10 +1,10 @@
-print('Setting UP')
+print('Loading....')
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 from utility import *
 import solver
 
-pathImage = "Resources/5.png"
+pathImage = "Resources/1.png"
 heightImg = 450
 widthImg = 450
 model = intializePredectionModel()  # LOAD THE CNN MODEL
@@ -74,8 +74,7 @@ if biggest.size != 0:
     imgDetectedDigits = drawGrid(imgDetectedDigits)
     imgSolvedDigits = drawGrid(imgSolvedDigits)
 
-    imageArray = ([img,imgThreshold,imgContours, imgBigContour],
-                  [imgDetectedDigits, imgSolvedDigits,imgInvWarpColored,inv_perspective])
+    imageArray = ([img,inv_perspective])
     stackedImage = stackImages(imageArray, 1)
     cv2.imshow('Stacked Images', stackedImage)
 
